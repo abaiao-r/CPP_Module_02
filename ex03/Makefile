@@ -6,13 +6,13 @@
 #    By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 14:18:26 by abaiao-r          #+#    #+#              #
-#    Updated: 2023/09/13 20:41:01 by abaiao-r         ###   ########.fr        #
+#    Updated: 2023/09/15 15:23:05 by abaiao-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler settings	
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 
 # Directories
 SRCDIR = src
@@ -21,6 +21,7 @@ OBJDIR = objs
 # Source Files
 
 SRCS = 	$(SRCDIR)/main.cpp \
+		$(SRCDIR)/bsp.cpp \
 		$(SRCDIR)/Fixed.cpp \
 		$(SRCDIR)/Point.cpp
 

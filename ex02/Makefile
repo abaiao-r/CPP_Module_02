@@ -6,13 +6,13 @@
 #    By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 14:18:26 by abaiao-r          #+#    #+#              #
-#    Updated: 2023/09/13 19:56:48 by abaiao-r         ###   ########.fr        #
+#    Updated: 2023/09/14 17:45:15 by abaiao-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler settings	
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 
 # Directories
 SRCDIR = src
@@ -26,7 +26,7 @@ SRCS = 	$(SRCDIR)/main.cpp \
 OBJS = 	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Targets
-NAME = Now_we're_talking
+NAME = Now_we_are_talking
 
 all: 	$(NAME)
 

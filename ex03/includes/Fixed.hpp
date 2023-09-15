@@ -6,7 +6,7 @@
 /*   By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:20:37 by abaiao-r          #+#    #+#             */
-/*   Updated: 2023/09/13 21:11:51 by abaiao-r         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:59:29 by abaiao-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include <cmath>
 
 class Fixed

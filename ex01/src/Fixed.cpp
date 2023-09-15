@@ -6,7 +6,7 @@
 /*   By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:20:19 by abaiao-r          #+#    #+#             */
-/*   Updated: 2023/09/13 19:07:30 by abaiao-r         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:41:57 by abaiao-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ float Fixed::toFloat(void) const
 
 /* Overload operator <<
 ** Displays the fixed point value as a float.
+** It is used in the main function to display the result of the toInt() method.
 */
 std::ostream &operator<<(std::ostream &out, const Fixed &src)
 {

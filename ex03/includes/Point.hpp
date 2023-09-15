@@ -6,7 +6,7 @@
 /*   By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 20:34:49 by abaiao-r          #+#    #+#             */
-/*   Updated: 2023/09/13 20:35:19 by abaiao-r         ###   ########.fr       */
+/*   Updated: 2023/09/15 18:10:37 by abaiao-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define POINT_HPP
 
 #include "Fixed.hpp"
+#include <iostream>
+#include <cstdlib>
+
+/* colours */
+#define RESET   "\033[0m"
+#define RED     "\033[31m"      /* Red */
+#define GREEN   "\033[32m"      /* Green */
 
 class Point
 {
@@ -31,7 +38,5 @@ class Point
         Fixed getX(void) const;
         Fixed getY(void) const;
 };
-
-bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

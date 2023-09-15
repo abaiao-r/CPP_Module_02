@@ -1,46 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   bsp.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 20:34:30 by abaiao-r          #+#    #+#             */
-/*   Updated: 2023/09/15 14:11:59 by abaiao-r         ###   ########.fr       */
+/*   Created: 2023/09/15 14:04:59 by abaiao-r          #+#    #+#             */
+/*   Updated: 2023/09/15 14:05:49 by abaiao-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Point.hpp"
+#ifndef BSP_HPP
+# define BSP_HPP
 
+#include "Point.hpp"
 
-Point::Point(void) : x(0), y(0)
-{
-}
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-Point::Point(const Point &src) : x(src.x), y(src.y)
-{
-}
-
-Point::Point(const float x, const float y) : x(x), y(y)
-{
-}
-
-Point::~Point(void)
-{
-}
-
-Point &Point::operator=(const Point &src)
-{
-    (void)src;
-    return (*this);
-}
-
-Fixed Point::getX(void) const
-{
-    return (this->x);
-}
-
-Fixed Point::getY(void) const
-{
-    return (this->y);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: abaiao-r <abaiao-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:20:19 by abaiao-r          #+#    #+#             */
-/*   Updated: 2023/09/13 19:54:19 by abaiao-r         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:59:07 by abaiao-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* Default constructor*/
 Fixed::Fixed(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
     this->fixedPointValue = 0;
 }
 
@@ -27,7 +27,7 @@ Fixed::Fixed(void)
 */
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     this->fixedPointValue = value << this->fractionalBits;
 }
 
@@ -39,7 +39,7 @@ Fixed::Fixed(const int value)
 */
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->fixedPointValue = roundf(value * (1 << this->fractionalBits));
 }
 
@@ -49,7 +49,7 @@ Fixed::Fixed(const float value)
 */
 Fixed::Fixed(const Fixed &src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
@@ -59,7 +59,7 @@ Fixed::Fixed(const Fixed &src)
 */
 Fixed &Fixed::operator=(const Fixed &src)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     this->fixedPointValue = src.getRawBits();
     return (*this);
 }
@@ -117,8 +117,11 @@ std::ostream &operator<<(std::ostream &out, const Fixed &src)
 }
 
 /* Overload operator <
-** Returns the fixed point value that is the smallest of the two fixed point
-** values that are passed as parameters.
+** overload operator are used to redefine the way operators work. in this case
+** we are redefining the way the operator < works. we are telling the compiler
+** that when we use the operator < with two fixed point values, we want it to
+** compare the fixedPointValue attribute of the two objects.
+** this funtion returns true if the fixed point value on the left is smaller
 */
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
@@ -209,7 +212,10 @@ bool Fixed::operator>=(const Fixed &src) const
 */
 Fixed Fixed::operator+(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() + src.toFloat()));
+    Fixed result;
+
+    result.setRawBits(this->getRawBits() + src.getRawBits());
+    return (result);
 }
 
 /* Overload operator -
@@ -217,7 +223,10 @@ Fixed Fixed::operator+(const Fixed &src) const
 */
 Fixed Fixed::operator-(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() - src.toFloat()));
+    Fixed result;
+
+    result.setRawBits(this->getRawBits() - src.getRawBits());
+    return (result);
 }
 
 /* Overload operator * 
@@ -225,7 +234,11 @@ Fixed Fixed::operator-(const Fixed &src) const
 */
 Fixed Fixed::operator*(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() * src.toFloat()));
+    Fixed result;
+
+    result.setRawBits(((int64_t)this->getRawBits() * (int64_t)src.getRawBits()) 
+        >> this->fractionalBits);
+    return (result);
 }
 
 /* Overload operator /
@@ -233,7 +246,19 @@ Fixed Fixed::operator*(const Fixed &src) const
 */
 Fixed Fixed::operator/(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() / src.toFloat()));
+    if (src.getRawBits() != 0)
+    {
+        Fixed result;
+
+        result.setRawBits(((int64_t)this->getRawBits() << this->fractionalBits)
+            / (int64_t)src.getRawBits());
+        return (result);
+    }
+    else
+    {
+        std::cout << "Error: Division by zero" << std::endl;
+        return (Fixed(0));
+    }
 }
 
 /* Overload operator ++
