@@ -1,6 +1,6 @@
 # C++ Module 02 Project
 
-![C++ Logo](cpp_logo.png)
+  <img src="cpp_logo.png" alt="C++ Logo" width="100" height="100">
 
 ## Table of Contents
 
